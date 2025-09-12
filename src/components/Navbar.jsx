@@ -1,29 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import DarkModeButton from "./DarkModeButton";
+import DarkMode from "./DarkMode";
 
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-function Navbar() {
   return (
-    <header className="bg-blue-600 text-white p-4 shadow">
-      <nav className="flex items-center justify-between max-w-7xl mx-auto">
-        {/* Logo + Brand */}
-        <div className="flex items-center gap-3">
-          <img src="/images/logo.png" alt="Logo" className="h-10 w-auto" />
-          <span className="text-xl font-bold">BIOSPN HIPURITY</span>
-        </div>
-
-        {/* Links */}
-        <div className="flex gap-6">
-            <Link to="/" className="hover:underline">Home</Link>
-            <Link to="/products" className="hover:underline">Products</Link>
-            <Link to="/about" className="hover:underline">About</Link>
-            <Link to="/contact" className="hover:underline">Contact</Link>
-            <DarkModeButton />
-          </div>
-      </nav>
-    </header>
+    <nav className="bg-white dark:bg-gray-900 shadow-md">
+  <div className="container mx-auto px-6 py-3 flex justify-between items-center">
+    <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+      BioSPN
+    </h1>
+    <ul className="flex space-x-6 text-gray-800 dark:text-gray-200">
+      <li><a href="/" className="hover:text-blue-600 dark:hover:text-yellow-400">Home</a></li>
+      <li><a href="/products" className="hover:text-blue-600 dark:hover:text-yellow-400">Products</a></li>
+      <li><a href="/about" className="hover:text-blue-600 dark:hover:text-yellow-400">About</a></li>
+      <li><a href="/contact" className="hover:text-blue-600 dark:hover:text-yellow-400">Contact</a></li>
+    </ul>
+    <DarkMode />
+  </div>
+</nav>
   );
-}
+};
 
 export default Navbar;
